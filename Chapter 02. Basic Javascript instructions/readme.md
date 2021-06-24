@@ -148,3 +148,195 @@ elNote.innerHTML = message;
 * Chạy file `app_02/c02/string-with-quotes.html`:
   ![](images/02_02.png)
   ![](images/02_03.png)
+
+# 10. Using a variable to store a boolean
+* Xem `app_03`.
+
+###### [app_03/c02/js/boolean-variable.js](app_03/c02/js/boolean-variable.js)
+  ```js
+  var inStock;
+  var shipping;
+  inStock = true;
+  shipping = false;
+
+  var elStock = document.getElementById('stock');
+  elStock.className = inStock;
+
+  var elShip = document.getElementById('shipping');
+  elShip.className = shipping;
+  ```
+
+###### [app_03/c02/boolean-variable.html](app_03/c02/boolean-variable.html)
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>JavaScript &amp; jQuery - Chapter 2: Basic JavaScript Instructions - Boolean Variable</title>
+      <link rel="stylesheet" href="css/c02.css" />
+    </head>
+    <body>
+      <h1>Elderflower</h1>
+      <div id="content">
+        <div class="message">Available: <span id="stock"></span></div>
+        <div class="message">Shipping: <span id="shipping"></span></div>
+      </div>
+      <script src="js/boolean-variable.js"></script>
+    </body>
+  </html>
+  ```
+
+  ![](images/02_04.png)
+
+# 11. Shorthand for creating variables
+* Xem `app_04`.
+###### [app_04/c02/js/shorthand-variable.js](app_04/c02/js/shorthand-variable.js)
+  ```js
+  // METHOD 1
+  var price = 5;
+  var quantity = 14;
+  var total = price * quantity;
+
+  /* METHOD 2
+  var price, quantity, total;
+  price = 5;
+  quantity = 14;
+  total = price * quantity;
+  */
+
+  /* METHOD 3
+  var price = 5, quantity = 14;
+  var total = price * quantity;
+  */
+
+  var el = document.getElementById('cost'); 
+  el.textContent = '$' + total;              
+  ```
+
+###### [app_04/c02/shorthand-variable.html](app_04/c02/shorthand-variable.html)
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>JavaScript &amp; jQuery - Chapter 2: Basic JavaScript Instructions - Shorthand Variable</title>
+      <link rel="stylesheet" href="css/c02.css" />
+    </head>
+    <body>
+      <h1>Elderflower</h1>
+      <div id="content">
+        <h2>Custom Signage</h2>
+        <div id="cost">Cost: $5 per tile</div>
+        <img src="images/preview.jpg" alt="Sign" />
+      </div>
+      <script src="js/shorthand-variable.js"></script>
+    </body>
+  </html>
+  ```
+  ![](images/02_05.png)
+
+# 12. Changing the value of a variable
+* Xem `app_05`.
+
+###### [app_05/c02/js/update-variable.js](app_05/c02/js/update-variable.js)
+  ```js
+  var inStock;
+  var shipping;
+
+  inStock = true;
+  shipping = false;
+
+  inStock = false;
+  shipping = true;
+
+  var elStock = document.getElementById('stock');
+  elStock.className = inStock;
+
+  var elShip = document.getElementById('shipping');
+  elShip.className = shipping;
+  ```
+
+###### [app_05/c02/update-variable.html](app_05/c02/update-variable.html)
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>JavaScript &amp; jQuery - Chapter 2: Basic JavaScript Instructions - Update Variable</title>
+      <link rel="stylesheet" href="css/c02.css" />
+    </head>
+    <body>
+      <h1>Elderflower</h1>
+      <div id="content">
+        <div class="message">Available: <span id="stock"></span></div>
+        <div class="message">Shipping: <span id="shipping"></span></div>
+      </div>
+      <script src="js/update-variable.js"></script>
+    </body>
+  </html>
+  ```
+  ![](images/02_06.png)
+
+# 13. Rules for naming variables
+# 14. Arrays
+# 15. Creating an array
+* Xem `app_06`.
+
+###### [app_06/c02/js/array-literal.js](app_06/c02/js/array-literal.js)
+  ```js
+  var colors; 
+  colors = ['white', 'black', 'custom'];
+
+  var el = document.getElementById('colors');
+  el.textContent = colors[0];
+  ```
+###### [app_06/c02/array-literal.html](app_06/c02/array-literal.html)
+  ```html
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 2: Basic JavaScript Instructions - Array Literal</title>
+    <link rel="stylesheet" href="css/c02.css" />
+  </head>
+  <body>
+    <h1>Elderflower</h1>
+    <div id="content">
+        <div class="message">Color: <span id="colors">We were unable to find your color choice. Please try again...</span></div>
+    </div>
+    <script src="js/array-literal.js"></script>
+  </body>
+  </html>
+  ```
+  ![](images/02_07.png)
+
+<hr>
+
+* Xem folder `app_07`.
+
+###### [app_07/c02/js/array-constructor.js](app_07/c02/js/array-constructor.js)
+  ```js
+  var colors = new Array('white', 
+                        'black',
+                        'custom');
+
+  var el = document.getElementById('colors');
+  el.textContent = colors[1];
+  ```
+
+###### [app_07/c02/array-constructor.html](app_07/c02/array-constructor.html)
+  ```html
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 2: Basic JavaScript Instructions - Array Constructor</title>
+    <link rel="stylesheet" href="css/c02.css" />
+  </head>
+  <body>
+    <h1>Elderflower</h1>
+    <div id="content">
+        <div class="message">Color: <span id="colors">We were unable to find your color choice. Please try again...</span></div>
+    </div>
+    <script src="js/array-constructor.js"></script>
+  </body>
+  </html>
+  ```
+  ![](images/02_08.png)
+
+# 16. Values in arrays
