@@ -370,3 +370,51 @@ elHotel2.textContent = details2;
 ![](images/03_04.png)
 
 # 23. Adding and removing properties
+* Xem `app_05`.
+
+###### [app_05/c03/js/adding-and-removing-properties.js](app_05/c03/js/adding-and-removing-properties.js)
+```js
+// Set up the object
+var hotel = {
+  name : 'Park',
+  rooms : 120,
+  booked : 77
+};
+
+hotel.gym = true;
+hotel.pool = false;
+delete hotel.booked;
+
+var elName = document.getElementById('hotelName'); 
+elName.textContent = hotel.name;                  
+
+var elPool = document.getElementById('pool');     
+elPool.className = hotel.pool;                   
+
+var elGym = document.getElementById('gym');    
+elGym.className = hotel.gym;                     
+```
+
+###### [app_05/c03/adding-and-removing-properties.html](app_05/c03/adding-and-removing-properties.html)
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 3: Functions, Methods &amp; Objects - Adding properties</title>
+    <link rel="stylesheet" href="css/c03.css" />
+  </head>
+  <body>
+    <h1>TravelWorthy</h1>
+    <div id="info">
+      <h2>hotel facilities</h2>
+      <div id="hotelName"></div>
+      <div>
+        <p id="pool">Pool</p>
+        <p id="gym">Gym</p>
+      </div>
+    </div>
+    <script src="js/adding-and-removing-properties.js"></script>
+  </body>
+</html>
+```
+![](images/03_05.png)
