@@ -418,3 +418,115 @@ elGym.className = hotel.gym;
 </html>
 ```
 ![](images/03_05.png)
+
+# 24. Recap: Ways to create objects
+* Tóm lại có những cách tạo một object như sau:
+* Cách 1:
+```js
+var hotel = {};
+
+hotel.name = 'Quay';
+hotel.rooms = 40;
+hotel.booked = 25;
+hotel.checkAvailability = function() {
+  return this.rooms - this.booked;
+};
+```
+
+* Cách 2:
+```js
+var hotel = new Object();
+
+hotel.name = 'Quay';
+hotel.rooms = 40;
+hotel.booked = 25;
+hotel.checkAvailability = function() {
+  return this.rooms - this.booked;
+};
+```
+
+* Cách 3:
+```js
+var hotel = {
+  name: 'Quay',
+  rooms: 40,
+  booked: 25,
+
+  checkAvailability: function() {
+    return this.rooms - this.booked;
+  }
+};
+```
+
+* Cách 4:
+```js
+function Hotel(name, rooms, booked) {
+  this.name = name;
+  this.rooms = rooms;
+  this.booked = booked;
+
+  this.checkAvailability = function() {
+    return this.rooms - this.booked;
+  };
+}
+
+var quanHotel = new Hotel('Quay', 40, 25);
+var parkHotel = new Hotel('Park', 120, 77);
+```
+
+# 25. This (it is a keyword)
+* Hàm nằm trong phạm vi toàn cầu:
+  * Khi một hàm dc tạo nằm ở cấp cao nhất của tập lệnh (nghĩa là hàm này ko nằm trog bất kì một object hay một hàm nào khác) thì nó sẽ ở trog phạm vi toàn cục.
+  * Lúc này, nếu sử dụng từ khóa `this` trog các hàm này sẽ `this` sẽ tham chiếu đến object `window`.
+  * Ví dụ dưới đây sẽ trả về các property của object `window`.
+    ```js
+    function windowSize() {
+      var width = this.innerWidth;
+      vat height = this.innerHeight;
+
+      return [height, width];
+    }
+
+* Biến toàn cục:
+  * Tất cả các biến mà dc khai báo là biến toàn cục thì mặc định trở thành property của object `window`, vậy nên có thể sử dụng từ khóa `this` để truy cập đến các object này.
+    ```js
+    var width = 600;
+    var shape = {width: 300};
+
+    var showWidth = function() {
+      document.write(this.width); // in ra 600
+    }
+
+    showWidth();
+    ```
+
+* Phương thức của một object:
+  * Khi sử dụng từ khóa `this` bên trong một object hay method của object đó thì nó sẽ tham chiếu đến các property của object này.
+    ```js
+    var shape = {
+      width: 600,
+      height: 400,
+      
+      getArea: function() {
+        return this.width * this.height;
+      }
+    };
+    ```
+
+* Sử dụng với function expression:
+  * Khi một function declaration đã dc khai báo trog phạm vi toàn cục, lúc này nếu sử dụng keyword `this` nó sẽ tham chiếu đến object `window`. Tuy nhiên nếu ta sử dụng function declaration này như là một method của một object **X** nào đó khác thì lúc này nếu ta có sử dụng từ khóa `this` bên trong function declaration này thì trình biên dịch sẽ hiểu là ta đang tham chiếu đến các proterty, object, method nằm bên trong object **X** này.
+  ```js
+  var showWidth = function() {
+    document.write(this.width); // mặc định là this trỏ đến window
+  }
+
+  var width = 600; // global variable
+  var shape = {
+    width: 300
+  }; // new object
+
+  shape.getWidth = showWidth; // tạo một method cho shape bằng function expression từ function declaration showWidth
+  shape.getWidth(); // lúc này nếu gọi method sẽ xuất ra 300, do 
+  // this lúc này sẽ tham chiếu đến thuộc tính width của shape chứ 
+  // ko phải của window object nữa. 
+  ```
