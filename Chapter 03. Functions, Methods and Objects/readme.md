@@ -546,3 +546,174 @@ var parkHotel = new Hotel('Park', 120, 77);
   ![](images/03_08.png)
 
 # 31. The browser object model: the window object
+![](images/03_09.png)
+
+# 32. Using the browser object model
+* Xem `app_06`.
+
+###### [app_06/c03/js/window-object.js](app_06/c03/js/window-object.js)
+```js
+var msg = '<h2>browser window</h2><p>width: ' + window.innerWidth + '</p>';
+msg += '<p>height: ' + window.innerHeight + '</p>';
+msg += '<h2>history</h2><p>items: ' + window.history.length + '</p>';
+msg += '<h2>screen</h2><p>width: ' + window.screen.width + '</p>';
+msg += '<p>height: ' + window.screen.height + '</p>';
+
+
+var el = document.getElementById('info');
+el.innerHTML = msg;
+
+alert('Current page: ' + window.location);
+```
+
+###### [app_06/c03/window-object.html](app_06/c03/window-object.html)
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 3: Functions, Methods &amp; Objects - Window Object</title>
+    <link rel="stylesheet" href="css/c03.css" />
+  </head>
+  <body>
+    <h1>TravelWorthy</h1>
+    <div id="info"></div>
+    <script src="js/window-object.js"></script>
+  </body>
+</html>
+```
+
+![](images/03_10.png)
+![](images/03_11.png)
+
+# 33. The document object model: The document object
+![](images/03_12.png)
+
+# 34. Using the document object
+* Xem `app_07`.
+
+###### [app_07/c03/js/document-object.js](app_07/c03/js/document-object.js)
+```js
+var msg = '<p><b>page title: </b>' + document.title + '<br />';
+msg += '<b>page address: </b>' + document.URL + '<br />';
+msg += '<b>last modified: </b>' + document.lastModified + '</p>';
+
+
+var el = document.getElementById('footer');
+el.innerHTML = msg;
+```
+
+###### [app_07/c03/document-object.html](app_07/c03/document-object.html)
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TravelWorthy</title>
+    <link rel="stylesheet" href="css/c03.css" />
+  </head>
+  <body>
+    <h1>TravelWorthy</h1>
+    <div id="footer"></div>
+    <script src="js/document-object.js"></script>
+  </body>
+</html>
+```
+![](images/03_13.png)
+
+# 35. Global object: String object
+![](images/03_14.png)
+
+# 36. Working with strings
+# 37. Data types revisited
+# 38. Global object: number object
+![](images/03_15.png)
+
+# 39. Working with decimal numbers
+# 40. Global objects: math object
+# 41. Math object to create random numbers
+# 42. Creating an instance of the date object
+# 43. Global objects: date object (and time)
+![](images/03_16.png)
+
+# 44. Creating a date object
+* Xem sách
+
+# 45. Working with dates & times
+* Xem sách
+
+# 46. Example
+* Xem `app_08`.
+###### [app_08/c03/js/example.js](app_08/c03/js/example.js)
+```js
+(function() {
+  var hotel = {
+    name: 'Park',
+    roomRate: 240, 
+    discount: 15,  
+    offerPrice: function() {
+      var offerRate = this.roomRate * ((100 - this.discount) / 100);
+      return offerRate;
+    }
+  };
+
+  var hotelName, roomRate, specialRate;                
+
+  hotelName = document.getElementById('hotelName');      
+  roomRate = document.getElementById('roomRate');
+  specialRate = document.getElementById('specialRate');
+
+  hotelName.textContent = hotel.name;             
+  roomRate.textContent =  '$' + hotel.roomRate.toFixed(2);
+  specialRate.textContent = '$' + hotel.offerPrice();  
+  var expiryMsg; 
+  var today;     
+  var elEnds;   
+
+  function offerExpires(today) {
+    var weekFromToday, day, date, month, year, dayNames, monthNames;
+
+    weekFromToday = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+
+    dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    day = dayNames[weekFromToday.getDay()];
+    date = weekFromToday.getDate();
+    month = monthNames[weekFromToday.getMonth()];
+    year = weekFromToday.getFullYear();
+
+    expiryMsg = 'Offer expires next ';
+    expiryMsg += day + ' <br />(' + date + ' ' + month + ' ' + year + ')';
+    return expiryMsg;
+  }
+
+  today = new Date();                             
+  elEnds = document.getElementById('offerEnds');  
+  elEnds.innerHTML = offerExpires(today);         
+}());
+```
+
+###### [app_08/c03/example.html](app_08/c03/example.html)
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 3: Functions, Methods &amp; Objects - Example</title>
+    <link rel="stylesheet" href="css/c03.css" />
+  </head>
+  <body>
+    <h1>TravelWorthy</h1>
+    <div id="info">
+      <h2>latest hotel offer</h2>
+      <div id="hotelName"></div>
+      <div id="roomRate"></div>
+      <div id="specialRate"></div>
+      <p>room rate when you book 2 or more nights</p>
+      <div id="offerEnds"></div>
+    </div>
+    <script src="js/example.js"></script>
+  </body>
+</html>
+```
+
+![](images/03_17.png)
+# 47. Summary
