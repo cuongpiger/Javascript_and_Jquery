@@ -530,3 +530,19 @@ var parkHotel = new Hotel('Park', 120, 77);
   // this lúc này sẽ tham chiếu đến thuộc tính width của shape chứ 
   // ko phải của window object nữa. 
   ```
+
+# 26. Recap: Storing data
+# 27. Arrays are objects
+# 28. Arrays of objects & objects in arrays
+# 29. What are built-in objects?
+# 30. Three groups of built-in objects
+* Browser object model:
+  ![](images/03_06.png)  
+
+* Document object model:
+  ![](images/03_07.png)
+
+* Global javascript object
+  ![](images/03_08.png)
+
+# 31. The browser object model: the window object
